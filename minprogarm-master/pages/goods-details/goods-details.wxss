@@ -1,0 +1,10 @@
+.container {
+  padding-bottom: 130rpx;
+}
+.calc-car {
+  position: fixed;
+  left: 13rpx;
+  bottom: 20rpx;
+  z-index: 999;
+}
+  

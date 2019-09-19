@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="list">
+    <detail-goods class="goods-item" wx:for="{{goods}}" wx:key="{{item.id}}" goods="{{item}}" bindgoodscalc="goodsCalc"></detail-goods>
+  </view>
+  <calc-car class="calc-car" address="{{address}}" goodsPrice="{{goodsPrice}}" orderTotalPrice="{{orderTotalPrice}}" sendprice="{{sendprice}}" discount="{{discount}}" goodsbprice="{{goodsbprice}}" diffPrice="{{diffPrice}}" orderGoodsList="{{orderGoodsList}}"></calc-car>
+</view>

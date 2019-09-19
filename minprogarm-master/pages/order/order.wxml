@@ -1,0 +1,31 @@
+<button class="authorize" open-type="getUserInfo" bindgetuserinfo="userLogin" wx:if="{{!userInfo.loginStatus}}"></button>
+<swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="rgba(238, 238, 238, 1)" indicator-active-color="#e94215" circular autoplay >
+  <swiper-item wx:for="{{swiperImgs}}" wx:key="index">
+    <image class="slide-image" src="{{baseURL}}/{{item.path}}" mode="aspectFill" lazy-load="{{true}}" ></image>
+  </swiper-item>
+</swiper >
+<!-- 新加导航 -->
+<view class="tab">
+  <view class="tab-list" wx:for="{{tabList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="choseMenu">
+    <image src="{{item.img}}"></image>
+    <text>{{item.name}}</text>
+  </view>
+  <!-- <text class="tab-nav" id="tab-nav">商品类型</text>
+  <view class="scroll">
+    <text class="tab-nav {{menuIndex === index ? 'active' : ''}} " wx:for="{{menuList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="chooseMenu">{{item.name}}</text>
+  </view> -->
+</view>
+<view class="goods">
+  <view class="aside">
+    <view class="item {{menuIndex === index ? 'active' : ''}} " wx:for="{{menuList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="chooseMenu">
+      <view class="triangle"><text></text></view>
+      {{item.name}}
+    </view>
+  </view>
+  <scroll-view class="list-wrap" scroll-y scroll-top="{{listViewScrollTop}}"  bindscroll="foodListScrolling" scroll-with-animation="true">
+    <view class="list">
+      <order-goods class="goods-item" wx:for="{{goodsList}}" wx:key="{{item.id}}" goods="{{item}}" data-outerindex="{{index}}" bindgoodscalc="goodsCalc"></order-goods>
+    </view>
+  </scroll-view>
+</view>
+<calc-car class="calc-car" address="{{address}}" goodsPrice="{{goodsPrice}}" orderTotalPrice="{{orderTotalPrice}}" sendprice="{{sendprice}}" discount="{{discount}}" goodsbprice="{{goodsbprice}}" diffPrice="{{diffPrice}}" orderGoodsList="{{orderGoodsList}}"></calc-car>
